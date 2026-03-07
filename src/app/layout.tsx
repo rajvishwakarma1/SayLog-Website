@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "SayLog — Voice Calorie Tracking for Indian Food",
   description:
     "Log meals by speaking in your language. SayLog is a voice-first calorie tracker built for Indian food and real eating habits.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

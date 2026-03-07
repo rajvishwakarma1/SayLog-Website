@@ -17,17 +17,31 @@ export default function Home() {
             <SayLogLogo size={32} />
             <span className="text-lg font-semibold tracking-tight">SayLog</span>
           </div>
-          <a
-            href="#waitlist"
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-dark"
-          >
-            Join waitlist
-          </a>
+          <div className="flex items-center gap-4">
+            <a
+              href="#how-it-works"
+              className="text-sm font-medium text-stone-text-secondary transition-colors hover:text-stone-text"
+            >
+              How it works
+            </a>
+            <a
+              href="mailto:rwelabs@gmail.com"
+              className="text-sm font-medium text-stone-text-secondary transition-colors hover:text-stone-text"
+            >
+              Contact
+            </a>
+            <a
+              href="#waitlist"
+              className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-dark"
+            >
+              Join waitlist
+            </a>
+          </div>
         </div>
       </nav>
 
       {/* Hero */}
-      <section className="mx-auto max-w-5xl px-6 pt-20 pb-16 md:pt-28 md:pb-24">
+      <section className="mx-auto max-w-5xl px-6 pt-12 pb-16 md:pt-16 md:pb-24">
         <div className="mx-auto max-w-2xl text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-stone-border bg-white px-4 py-1.5 text-xs font-medium text-stone-text-secondary">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
@@ -289,9 +303,17 @@ export default function Home() {
               <SayLogLogo size={24} />
               <span className="text-sm font-medium">SayLog</span>
             </div>
-            <p className="text-xs text-stone-text-tertiary">
-              &copy; {new Date().getFullYear()} SayLog
-            </p>
+            <div className="flex items-center gap-4">
+              <a
+                href="mailto:rwelabs@gmail.com"
+                className="text-sm font-medium text-stone-text-secondary transition-colors hover:text-stone-text"
+              >
+                Contact
+              </a>
+              <p className="text-xs text-stone-text-tertiary">
+                &copy; {new Date().getFullYear()} SayLog
+              </p>
+            </div>
           </div>
         </div>
       </footer>

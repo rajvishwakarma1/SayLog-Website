@@ -73,7 +73,31 @@ export async function POST(request: NextRequest) {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const authHeader = request.headers.get("authorization");
+
+  const expectedUsername = process.env.ADMIN_USERNAME;
+  const expectedPassword = process.env.ADMIN_PASSWORD;
+
+  if (!authHeader || !authHeader.startsWith("Basic ")) {
+    return NextResponse.json({ error: "Unauthorized" }, {
+      status: 401,
+      headers: { "WWW-Authenticate": "Basic realm=\"Waitlist Admin\"" },
+    });
+  }
+
+  const base64 = authHeader.slice(6);
+  const decoded = Buffer.from(base64, "base64").toString("utf-8");
+  const [username, ...rest] = decoded.split(":");
+  const password = rest.join(":");
+
+  if (username !== expectedUsername || password !== expectedPassword) {
+    return NextResponse.json({ error: "Unauthorized" }, {
+      status: 401,
+      headers: { "WWW-Authenticate": "Basic realm=\"Waitlist Admin\"" },
+    });
+  }
+
   const entries = readEntries();
   return NextResponse.json({ count: entries.length, entries });
 }
