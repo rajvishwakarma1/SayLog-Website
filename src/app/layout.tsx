@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SayLog — Voice Calorie Tracking for Indian Food",
+  title: "SayLog - Voice Calorie Tracking",
   description:
     "Log meals by speaking in your language. SayLog is a voice-first calorie tracker built for Indian food and real eating habits.",
   icons: {

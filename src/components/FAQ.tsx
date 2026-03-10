@@ -42,9 +42,8 @@ export default function FAQ() {
           >
             <span className="text-sm font-medium text-stone-text pr-8">{faq.q}</span>
             <svg
-              className={`h-4 w-4 shrink-0 text-stone-text-tertiary transition-transform ${
-                open === i ? "rotate-180" : ""
-              }`}
+              className={`h-4 w-4 shrink-0 text-stone-text-tertiary transition-transform ${open === i ? "rotate-180" : ""
+                }`}
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={2}
@@ -53,11 +52,16 @@ export default function FAQ() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
             </svg>
           </button>
-          {open === i && (
-            <p className="pb-5 text-sm leading-relaxed text-stone-text-secondary">
-              {faq.a}
-            </p>
-          )}
+          <div
+            className={`grid transition-all duration-300 ease-in-out ${open === i ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+              }`}
+          >
+            <div className="overflow-hidden">
+              <p className="pb-5 text-sm leading-relaxed text-stone-text-secondary">
+                {faq.a}
+              </p>
+            </div>
+          </div>
         </div>
       ))}
     </div>

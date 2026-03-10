@@ -1,75 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
 
-const AIRTABLE_API_BASE = "https://api.airtable.com/v0";
-const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
-const AIRTABLE_TOKEN = process.env.AIRTABLE_TOKEN;
-const TABLE_NAME = "Waitlist";
-
-interface WaitlistEntry {
-  name: string;
-  email: string;
-  phone: string;
-  device: "android" | "ios";
-  timestamp: string;
-}
-
-async function getEntries(): Promise<WaitlistEntry[]> {
-  if (!AIRTABLE_BASE_ID || !AIRTABLE_TOKEN) {
-    throw new Error("Airtable credentials missing");
-  }
-
-  const res = await fetch(
-    `${AIRTABLE_API_BASE}/${AIRTABLE_BASE_ID}/${TABLE_NAME}`,
-    {
-      headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` },
-    }
-  );
-
-  if (!res.ok) throw new Error("Failed to fetch from Airtable");
-
-  const data = await res.json();
-  return data.records.map((record: any) => ({
-    name: record.fields.name || "",
-    email: record.fields.email || "",
-    phone: record.fields.phone || "",
-    device: record.fields.device || "android",
-    timestamp: record.createdTime || new Date().toISOString(),
-  }));
-}
-
-async function addEntry(entry: WaitlistEntry): Promise<void> {
-  if (!AIRTABLE_BASE_ID || !AIRTABLE_TOKEN) {
-    throw new Error("Airtable credentials missing");
-  }
-
-  const res = await fetch(
-    `${AIRTABLE_API_BASE}/${AIRTABLE_BASE_ID}/${TABLE_NAME}`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${AIRTABLE_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        records: [
-          {
-            fields: {
-              name: entry.name,
-              email: entry.email,
-              phone: entry.phone,
-              device: entry.device,
-            },
-          },
-        ],
-      }),
-    }
-  );
-
-  if (!res.ok) {
-    const error = await res.text();
-    throw new Error(`Airtable error: ${error}`);
-  }
-}
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
 export async function POST(request: NextRequest) {
   try {
@@ -90,31 +25,36 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const entries = await getEntries();
-
     // Check for duplicate email
-    if (entries.some((e) => e.email.toLowerCase() === email.toLowerCase())) {
+    const { data: existing } = await supabase
+      .from("waitlist")
+      .select("id")
+      .eq("email", email.trim().toLowerCase())
+      .maybeSingle();
+
+    if (existing) {
       return NextResponse.json(
         { error: "This email is already on the waitlist" },
         { status: 409 }
       );
     }
 
-    await addEntry({
+    const { error } = await supabase.from("waitlist").insert({
       name: name.trim(),
       email: email.trim().toLowerCase(),
       phone: phone?.trim() || "",
       device,
-      timestamp: new Date().toISOString(),
     });
 
+    if (error) {
+      console.error("Supabase insert error:", error);
+      return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
+    }
+
     return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error("Waitlist error:", error);
-    return NextResponse.json(
-      { error: "Something went wrong" },
-      { status: 500 }
-    );
+  } catch (err) {
+    console.error("Waitlist error:", err);
+    return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
   }
 }
 
@@ -149,14 +89,23 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  try {
-    const entries = await getEntries();
-    return NextResponse.json({ count: entries.length, entries });
-  } catch (error) {
-    console.error("Failed to fetch entries:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch entries" },
-      { status: 500 }
-    );
+  const { data, error } = await supabase
+    .from("waitlist")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    console.error("Supabase fetch error:", error);
+    return NextResponse.json({ error: "Failed to fetch entries" }, { status: 500 });
   }
+
+  const entries = data.map((row) => ({
+    name: row.name,
+    email: row.email,
+    phone: row.phone,
+    device: row.device,
+    timestamp: row.created_at,
+  }));
+
+  return NextResponse.json({ count: entries.length, entries });
 }

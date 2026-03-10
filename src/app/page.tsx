@@ -1,166 +1,121 @@
 import WaitlistForm from "@/components/WaitlistForm";
 import FAQ from "@/components/FAQ";
 import SayLogLogo from "@/components/SayLogLogo";
-
-const languages = [
-  "Hindi", "English", "Bengali", "Tamil", "Telugu",
-  "Gujarati", "Kannada", "Malayalam", "Marathi", "Punjabi", "Odia",
-];
+import Navbar from "@/components/Navbar";
+import PhoneMockup from "@/components/PhoneMockup";
+import AppCarousel from "@/components/AppCarousel";
+import AboutCreator from "@/components/AboutCreator";
+import LanguageGrid from "@/components/LanguageGrid";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen w-full overflow-x-hidden pt-20">
       {/* Nav */}
-      <nav className="sticky top-0 z-50 border-b border-stone-border bg-stone-bg/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-2">
-            <SayLogLogo size={32} />
-            <span className="text-lg font-semibold tracking-tight">SayLog</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <a
-              href="#how-it-works"
-              className="text-sm font-medium text-stone-text-secondary transition-colors hover:text-stone-text"
-            >
-              How it works
-            </a>
-            <a
-              href="mailto:rwelabs@gmail.com"
-              className="text-sm font-medium text-stone-text-secondary transition-colors hover:text-stone-text"
-            >
-              Contact
-            </a>
-            <a
-              href="#waitlist"
-              className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-dark"
-            >
-              Join waitlist
-            </a>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero */}
-      <section className="mx-auto max-w-5xl px-6 pt-12 pb-16 md:pt-16 md:pb-24">
-        <div className="mx-auto max-w-2xl text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-stone-border bg-white px-4 py-1.5 text-xs font-medium text-stone-text-secondary">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-            Coming soon — join the waitlist
+      <section className="mx-auto w-full max-w-6xl px-6 pt-12 pb-16 md:pt-20 md:pb-28 overflow-hidden">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-8">
+          {/* Text Content */}
+          <div className="flex flex-1 w-full md:w-1/2 flex-col items-center justify-center space-y-8 text-center md:items-start md:text-left">
+            {/* Pill */}
+            <div className="inline-flex w-fit self-center md:self-start items-center rounded-full border border-stone-border bg-stone-50 px-3 py-1 text-sm text-stone-text shadow-sm">
+              <span className="mr-2 flex h-2 w-2 rounded-full bg-[#82C394]"></span>
+              Coming soon - join the waitlist
+            </div>
+            <h1 className="text-5xl font-bold tracking-tight sm:text-7xl lg:text-[5.5rem] leading-[1.1]">
+              Track calories by <span className="text-accent">speaking</span>, not typing
+            </h1>
+            <p className="mt-6 text-lg text-stone-text-secondary leading-relaxed max-w-lg mx-auto md:mx-0">
+              Say what you ate in your language. SayLog handles the rest - calories, macros, and nutrition insights. Built for Indian food.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-4">
+              <a
+                href="#waitlist"
+                className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark shadow-sm hover:shadow"
+              >
+                Get early access
+              </a>
+              <a
+                href="#how-it-works"
+                className="rounded-lg border border-stone-border bg-white px-6 py-3 text-sm font-medium text-stone-text-secondary transition-colors hover:border-stone-400 hover:bg-stone-50"
+              >
+                See how it works
+              </a>
+            </div>
           </div>
-          <h1 className="text-4xl font-bold tracking-tight text-stone-text sm:text-5xl md:text-6xl leading-[1.1]">
-            Track calories by<br />
-            <span className="text-accent">speaking</span>, not typing
-          </h1>
-          <p className="mt-6 text-lg text-stone-text-secondary leading-relaxed max-w-lg mx-auto">
-            Say what you ate in your language. SayLog handles the rest - calories, macros, and nutrition insights. Built for Indian food.
-          </p>
-          <div className="mt-8 flex items-center justify-center gap-3">
-            <a
-              href="#waitlist"
-              className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
-            >
-              Get early access
-            </a>
-            <a
-              href="#how-it-works"
-              className="rounded-lg border border-stone-border bg-white px-6 py-3 text-sm font-medium text-stone-text-secondary transition-colors hover:border-[--color-text-tertiary]"
-            >
-              See how it works
-            </a>
-          </div>
-        </div>
 
-        {/* Demo bubble */}
-        <div className="mx-auto mt-16 max-w-md">
-          <div className="rounded-2xl border border-stone-border bg-white p-6 shadow-sm">
-            <div className="flex items-start gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full p-1.5">
-                <SayLogLogo size={28} />
-              </div>
-              <div>
-                <p className="text-xs font-medium text-stone-text-tertiary mb-1">You said:</p>
-                <p className="text-sm text-stone-text font-medium leading-relaxed">
-                  &ldquo;Lunch mein 1 plate pav bhaji khaya aur ek glass chaach&rdquo;
-                </p>
-              </div>
-            </div>
-            <div className="my-4 border-t border-dashed border-stone-border" />
-            <div className="space-y-2.5">
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-stone-text-secondary">Pav Bhaji (1 plate)</span>
-                <span className="font-medium tabular-nums">~420 kcal</span>
-              </div>
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-stone-text-secondary">Chaach (1 glass)</span>
-                <span className="font-medium tabular-nums">~45 kcal</span>
-              </div>
-              <div className="mt-3 flex items-center justify-between border-t border-stone-border pt-3 text-sm">
-                <span className="font-semibold">Total</span>
-                <span className="font-semibold text-accent">~465 kcal</span>
-              </div>
-            </div>
+          {/* Phone Mockup */}
+          <div className="flex-1 w-full md:w-1/2 flex justify-center md:justify-end lg:pr-12 md:pl-8 mt-4 md:mt-0">
+            <PhoneMockup />
           </div>
-          <p className="mt-3 text-center text-xs text-stone-text-tertiary">Logged in under 5 seconds</p>
         </div>
       </section>
 
       {/* How it works */}
-      <section id="how-it-works" className="border-t border-stone-border bg-white">
-        <div className="mx-auto max-w-5xl px-6 py-20 md:py-24">
-          <div className="mx-auto max-w-2xl text-center mb-14">
-            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Three steps. That&apos;s it.</h2>
-            <p className="mt-3 text-stone-text-secondary">
-              No food databases to search. No photos to take. No barcodes to scan.
-            </p>
-          </div>
-          <div className="grid gap-8 md:grid-cols-3">
-            {[
-              {
-                step: "1",
-                title: "Speak what you ate",
-                desc: "Tap the mic and say your meal naturally - \"I had 2 paratha with curd for breakfast.\"",
-                icon: (
-                  <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
-                  </svg>
-                ),
-              },
-              {
-                step: "2",
-                title: "SayLog breaks it down",
-                desc: "Your meal is converted into calories, protein, carbs, and fat - automatically.",
-                icon: (
-                  <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
-                  </svg>
-                ),
-              },
-              {
-                step: "3",
-                title: "Track trends, not just calories",
-                desc: "See weekly patterns, nutritional gaps, and insights that actually help you eat better.",
-                icon: (
-                  <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-                  </svg>
-                ),
-              },
-            ].map((item) => (
-              <div key={item.step} className="rounded-xl border border-stone-border-light bg-stone-bg p-6">
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-accent-light text-accent">
-                  {item.icon}
+      <section id="how-it-works" className="w-full border-t border-stone-border bg-white overflow-hidden relative">
+        <div className="mx-auto w-full max-w-6xl px-6 py-20 md:py-32">
+          <div className="flex flex-col md:flex-row items-start gap-16 md:gap-24 relative z-10">
+            {/* Left: Phone */}
+            <div className="hidden md:flex w-full md:w-5/12 mx-auto md:mx-0 justify-center sticky top-24">
+              <PhoneMockup variant="single" />
+            </div>
+
+            {/* Right: Content Steps */}
+            <div className="w-full md:w-7/12 flex flex-col justify-center">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold tracking-tight text-stone-text mb-16 leading-[1.1]">
+                Calorie tracking<br />
+                as easy as talking
+              </h2>
+
+              <div className="space-y-0">
+                {/* Step 1 */}
+                <div className="relative py-12 group">
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 text-7xl md:text-[6rem] font-serif font-bold text-stone-text-tertiary/20 select-none z-0 transition-all duration-500 group-hover:text-stone-text-tertiary/40">
+                    01
+                  </div>
+                  <div className="relative z-10 pr-24">
+                    <h3 className="text-xl font-bold text-stone-text mb-3">Speak what you ate</h3>
+                    <p className="text-stone-text-secondary leading-relaxed max-w-md">
+                      Tap the mic and describe your meal &mdash; &quot;I had 2 paratha with curd for breakfast.&quot; That&apos;s it.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-sm font-semibold text-stone-text">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-stone-text-secondary">{item.desc}</p>
+
+                {/* Step 2 */}
+                <div className="relative border-t border-stone-border py-12 group">
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 text-7xl md:text-[6rem] font-serif font-bold text-stone-text-tertiary/20 select-none z-0 transition-all duration-500 group-hover:text-stone-text-tertiary/40">
+                    02
+                  </div>
+                  <div className="relative z-10 pr-24">
+                    <h3 className="text-xl font-bold text-stone-text mb-3">SayLog breaks it down</h3>
+                    <p className="text-stone-text-secondary leading-relaxed max-w-md">
+                      Calories, protein, carbs, fat &mdash; calculated automatically from what you said.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Step 3 */}
+                <div className="relative border-t border-stone-border py-12 group">
+                  <div className="absolute right-0 top-1/2 -translate-y-1/2 text-7xl md:text-[6rem] font-serif font-bold text-stone-text-tertiary/20 select-none z-0 transition-all duration-500 group-hover:text-stone-text-tertiary/40">
+                    03
+                  </div>
+                  <div className="relative z-10 pr-24">
+                    <h3 className="text-xl font-bold text-stone-text mb-3">See what matters</h3>
+                    <p className="text-stone-text-secondary leading-relaxed max-w-md">
+                      Weekly patterns, gaps in nutrition, what&apos;s working. Not just numbers on a screen.
+                    </p>
+                  </div>
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="border-t border-stone-border">
-        <div className="mx-auto max-w-5xl px-6 py-20 md:py-24">
+      <section className="w-full border-t border-stone-border">
+        <div className="mx-auto w-full max-w-5xl px-6 py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center mb-14">
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
               Tracking food is the easy part
@@ -227,9 +182,12 @@ export default function Home() {
         </div>
       </section>
 
+      {/* See it in action Section */}
+      <AppCarousel />
+
       {/* Why SayLog */}
-      <section className="border-t border-stone-border bg-white">
-        <div className="mx-auto max-w-5xl px-6 py-20 md:py-24">
+      <section className="w-full border-t border-stone-border bg-white">
+        <div className="mx-auto w-full max-w-5xl px-6 py-20 md:py-24">
           <div className="mx-auto max-w-2xl text-center mb-14">
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
               Built for people who gave up on calorie tracking
@@ -251,27 +209,14 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Languages grid */}
-          <div className="mx-auto mt-14 max-w-2xl">
-            <p className="mb-4 text-center text-xs font-medium uppercase tracking-wider text-stone-text-tertiary">
-              Supported languages
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              {languages.map((lang) => (
-                <span
-                  key={lang}
-                  className="rounded-full border border-stone-border bg-stone-bg px-3 py-1 text-xs font-medium text-stone-text-secondary"
-                >
-                  {lang}
-                </span>
-              ))}
-            </div>
-          </div>
+          <LanguageGrid />
         </div>
       </section>
 
+      <AboutCreator />
+
       {/* FAQ */}
-      <section className="border-t border-stone-border">
+      <section id="faq" className="border-t border-stone-border">
         <div className="mx-auto max-w-2xl px-6 py-20 md:py-24">
           <h2 className="text-2xl font-bold tracking-tight text-center sm:text-3xl mb-8">
             Frequently asked questions
@@ -281,8 +226,8 @@ export default function Home() {
       </section>
 
       {/* Waitlist */}
-      <section id="waitlist" className="border-t border-stone-border bg-white">
-        <div className="mx-auto max-w-md px-6 py-20 md:py-24">
+      <section id="waitlist" className="w-full border-t border-stone-border bg-white mt-20 relative overflow-hidden">
+        <div className="mx-auto w-full max-w-3xl px-6 py-24 text-center">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
               Get early access
@@ -296,23 +241,36 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-stone-border">
-        <div className="mx-auto max-w-5xl px-6 py-8">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <SayLogLogo size={24} />
-              <span className="text-sm font-medium">SayLog</span>
+      <footer className="w-full border-t border-stone-border bg-white">
+        <div className="mx-auto w-full max-w-5xl px-6 py-12 md:py-16">
+          <div className="flex flex-col md:flex-row md:items-start justify-between gap-10">
+            {/* Left Content: Brand & Tagline */}
+            <div className="flex-1 max-w-md">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="text-[#206A5D]">
+                  <SayLogLogo size={22} />
+                </div>
+                <span className="text-lg font-medium text-stone-text tracking-tight">SayLog</span>
+              </div>
+              <p className="text-[15px] text-stone-text-secondary leading-relaxed mb-6">
+                Track your nutrition effortlessly by speaking in any Indian language.
+              </p>
+              <p className="text-[13px] text-stone-text-tertiary">
+                RWE Labs &copy; {new Date().getFullYear()}
+              </p>
             </div>
-            <div className="flex items-center gap-4">
+
+            {/* Right Content: Contact Button */}
+            <div className="shrink-0">
               <a
                 href="mailto:rwelabs@gmail.com"
-                className="text-sm font-medium text-stone-text-secondary transition-colors hover:text-stone-text"
+                className="group flex items-center justify-between gap-6 rounded-full bg-stone-100 hover:bg-stone-200 transition-all px-6 py-3.5"
               >
-                Contact
+                <span className="text-[15px] font-medium text-stone-text">rwelabs@gmail.com</span>
+                <svg className="h-4 w-4 text-stone-text-secondary transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5l7.5 7.5-7.5 7.5m-9-15l7.5 7.5-7.5 7.5" />
+                </svg>
               </a>
-              <p className="text-xs text-stone-text-tertiary">
-                &copy; {new Date().getFullYear()} SayLog
-              </p>
             </div>
           </div>
         </div>
