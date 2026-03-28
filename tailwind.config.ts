@@ -19,9 +19,9 @@ const config: Config = {
           "border-light": "#f5f5f4",
         },
         accent: {
-          DEFAULT: "#15803d",
-          light: "#dcfce7",
-          dark: "#166534",
+          DEFAULT: "#d4845a",
+          light: "rgba(255, 234, 223, 0.15)",
+          dark: "#b8683e",
         },
       },
     },

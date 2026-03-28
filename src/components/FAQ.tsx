@@ -5,11 +5,11 @@ import { useState } from "react";
 const faqs = [
   {
     q: "How does voice logging actually work?",
-    a: "You tap the mic button, say what you ate in plain language — like \"2 roti with dal and a bowl of rice\" — and SayLog converts that into a full calorie and macro breakdown. No searching through databases or weighing food.",
+    a: "You tap the mic button, say what you ate in plain language - like \"2 roti with dal and a bowl of rice\" - and SayLog converts that into a full calorie and macro breakdown. No searching through databases or weighing food.",
   },
   {
     q: "Does it understand Indian food properly?",
-    a: "Yes. SayLog is built specifically for Indian food — home-cooked meals, street food, mixed thalis, regional dishes. It understands portions the way Indians describe them: \"1 plate\", \"1 katori\", \"half a roti\", etc.",
+    a: "Yes. SayLog is built specifically for Indian food - home-cooked meals, street food, mixed thalis, regional dishes. It understands portions the way Indians describe them: \"1 plate\", \"1 katori\", \"half a roti\", etc.",
   },
   {
     q: "Which languages are supported?",
@@ -17,11 +17,11 @@ const faqs = [
   },
   {
     q: "Is this just calorie counting?",
-    a: "No. SayLog tracks calories and macros, but the real value is in the insights — weekly trends, eating patterns, nutritional gaps, and health reports that help you make better food decisions over time.",
+    a: "No. SayLog tracks calories and macros, but the real value is in the insights - weekly trends, eating patterns, nutritional gaps, and health reports that help you make better food decisions over time.",
   },
   {
     q: "I've tried calorie tracking before and couldn't stick with it. How is this different?",
-    a: "Most trackers fail because logging is tedious. SayLog takes about 5 seconds per meal — just speak and you're done. No typing, no photo scanning, no scrolling through food lists. Less friction means you actually keep using it.",
+    a: "Most trackers fail because logging is tedious. SayLog takes about 5 seconds per meal - just speak and you're done. No typing, no photo scanning, no scrolling through food lists. Less friction means you actually keep using it.",
   },
   {
     q: "When will SayLog launch?",

@@ -174,12 +174,12 @@ export default function PhoneInput({ value, onChange, onDialCodeChange }: PhoneI
 
     return (
         <div className="relative w-full" ref={dropdownRef}>
-            <div className="flex w-full items-center overflow-hidden rounded-lg border border-stone-border bg-white focus-within:border-[--color-accent] focus-within:ring-1 focus-within:ring-[--color-accent] transition-colors">
+            <div className="flex w-full items-center overflow-hidden rounded-lg border border-stone-border bg-cream/[0.06] focus-within:border-[--color-accent] focus-within:ring-1 focus-within:ring-[--color-accent] transition-colors">
                 {/* Country Selector Button */}
                 <button
                     type="button"
                     onClick={() => setIsOpen(!isOpen)}
-                    className="flex items-center gap-2 px-3 pl-4 py-[10px] text-sm font-medium text-stone-text hover:bg-stone-50 transition-colors border-r border-stone-border focus:outline-none"
+                    className="flex items-center gap-2 px-3 pl-4 py-[10px] text-sm font-medium text-cream hover:bg-cream/[0.06] transition-colors border-r border-stone-border focus:outline-none"
                 >
                     {/* Load real flag image instead of emoji */}
                     <img
@@ -199,16 +199,16 @@ export default function PhoneInput({ value, onChange, onDialCodeChange }: PhoneI
                     value={value}
                     onChange={handlePhoneChange}
                     placeholder="98765 43210"
-                    className="flex-1 bg-transparent px-4 py-[10px] text-base sm:text-sm text-stone-text placeholder:text-stone-text-tertiary outline-none"
+                    className="flex-1 bg-transparent px-4 py-[10px] text-base sm:text-sm text-cream placeholder:text-stone-text-tertiary outline-none"
                 />
             </div>
 
             {/* Dropdown Menu */}
             {isOpen && (
-                <div className="absolute left-0 top-full z-50 mt-2 w-[300px] rounded-xl border border-stone-border bg-white shadow-xl overflow-hidden">
+                <div className="absolute left-0 top-full z-50 mt-2 w-[calc(100vw-3rem)] max-w-[300px] rounded-xl border border-cream/10 bg-[#2a2829] shadow-xl overflow-hidden sm:w-[300px]">
                     <div className="p-2">
-                        <div className="relative flex items-center rounded-lg bg-stone-100 px-3 py-2">
-                            <svg className="h-4 w-4 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <div className="relative flex items-center rounded-lg bg-cream/[0.06] px-3 py-2">
+                            <svg className="h-4 w-4 text-cream/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                             </svg>
                             <input
@@ -216,7 +216,7 @@ export default function PhoneInput({ value, onChange, onDialCodeChange }: PhoneI
                                 placeholder="Search country..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="ml-2 w-full bg-transparent text-base sm:text-sm text-stone-text placeholder-stone-text-tertiary outline-none"
+                                className="ml-2 w-full bg-transparent text-base sm:text-sm text-cream placeholder-cream/40 outline-none"
                                 autoFocus
                             />
                         </div>
@@ -224,14 +224,14 @@ export default function PhoneInput({ value, onChange, onDialCodeChange }: PhoneI
 
                     <div className="max-h-60 overflow-y-auto pb-1 text-sm custom-scrollbar">
                         {filteredCountries.length === 0 ? (
-                            <div className="px-4 py-3 text-stone-400 text-center">No countries found</div>
+                            <div className="px-4 py-3 text-cream/40 text-center">No countries found</div>
                         ) : (
                             filteredCountries.map((country) => (
                                 <button
                                     key={country.code}
                                     type="button"
                                     onClick={() => handleCountrySelect(country)}
-                                    className={`flex w-full items-center justify-between px-4 py-2.5 transition-colors hover:bg-stone-50 ${selectedCountry.code === country.code ? "bg-stone-50" : ""
+                                    className={`flex w-full items-center justify-between px-4 py-2.5 transition-colors hover:bg-cream/[0.06] ${selectedCountry.code === country.code ? "bg-cream/[0.06]" : ""
                                         }`}
                                 >
                                     <div className="flex items-center gap-3">
@@ -240,11 +240,11 @@ export default function PhoneInput({ value, onChange, onDialCodeChange }: PhoneI
                                             alt={country.name}
                                             className="w-5 object-contain shadow-sm rounded-sm"
                                         />
-                                        <span className={`font-medium ${selectedCountry.code === country.code ? "text-accent" : "text-stone-text"}`}>
+                                        <span className={`font-medium ${selectedCountry.code === country.code ? "text-accent" : "text-cream"}`}>
                                             {country.name}
                                         </span>
                                     </div>
-                                    <span className={`${selectedCountry.code === country.code ? "text-accent" : "text-stone-text-secondary"}`}>
+                                    <span className={`${selectedCountry.code === country.code ? "text-accent" : "text-cream/50"}`}>
                                         {country.dialCode}
                                     </span>
                                 </button>

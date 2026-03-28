@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AboutCreator() {
     return (
-        <section className="border-t border-stone-border bg-stone-50/50">
+        <section className="bg-stone-50/50">
             <div className="mx-auto max-w-3xl px-6 py-20 md:py-24">
                 <h2 className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-stone-text flex items-center gap-3 mb-8">
                     Hi, I&apos;m Raj <span className="text-2xl md:text-3xl">👋</span>

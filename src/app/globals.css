@@ -1,27 +1,223 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #fafaf9;
-  --color-surface: #ffffff;
-  --color-text: #1c1917;
-  --color-text-secondary: #57534e;
-  --color-text-tertiary: #a8a29e;
-  --color-accent: #15803d;
-  --color-accent-light: #dcfce7;
-  --color-accent-dark: #166534;
-  --color-border: #e7e5e4;
-  --color-border-light: #f5f5f4;
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  /* ── Mitra-matched dark palette ── */
+  --color-card: #242425;
+  --color-cream: #ffeadf;
+  --color-muted: #B29D92;
+  --color-salmon: #d17e74;
+
+  /* ── Backward-compat (FAQ, WaitlistForm, etc.) ── */
+  --color-stone-text: #ffffff;
+  --color-stone-text-secondary: #B29D92;
+  --color-stone-text-tertiary: #71717a;
+  --color-stone-bg: #19181a;
+  --color-accent: #d4845a;
+  --color-accent-light: rgba(255, 234, 223, 0.1);
+  --color-accent-dark: #b8683e;
+  --color-stone-border: rgba(255, 234, 223, 0.08);
+  --color-stone-border-light: rgba(255, 234, 223, 0.04);
+
+  --font-sans: "Inter", sans-serif;
+
+  @keyframes waveform {
+    0%, 100% { transform: scaleY(1); opacity: 0.8; }
+    33% { transform: scaleY(0.7); opacity: 0.6; }
+    66% { transform: scaleY(1.3); opacity: 1; }
+  }
+  --animate-waveform: waveform 1.2s ease-in-out infinite;
+
+  @keyframes bubble-in {
+    0%   { opacity: 0; transform: translateY(10px) scale(0.95); }
+    60%  { opacity: 1; transform: translateY(-2px) scale(1.01); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  --animate-bubble-in: bubble-in 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+
+  @keyframes typing-dot {
+    0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+    40%           { transform: translateY(-4px); opacity: 1; }
+  }
+  --animate-typing-dot: typing-dot 1.2s ease-in-out infinite;
+
+  @keyframes wave-drift {
+    0%, 100% { transform: translateX(0); }
+    50%      { transform: translateX(-25%); }
+  }
+}
+
+@utility animate-waveform {
+  animation: var(--animate-waveform);
+}
+
+@utility animate-bubble-in {
+  animation: var(--animate-bubble-in);
+}
+
+@utility animate-typing-dot {
+  animation: var(--animate-typing-dot);
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background: #19181a;
+  color: #ffffff;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
+
+/* ─── Navbar ─── */
+.nav-blur {
+  background: rgba(25, 24, 26, 0.82);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+/* ─── Edge Glows (Mitra-style atmospheric side blurs) ─── */
+.edge-glow-left,
+.edge-glow-right {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+@media (min-width: 768px) {
+  .edge-glow-left,
+  .edge-glow-right {
+    width: 350px;
+  }
+}
+.edge-glow-left {
+  left: 0;
+  background: linear-gradient(90deg, rgba(59, 80, 180, 0.15) 0%, transparent 100%);
+}
+.edge-glow-right {
+  right: 0;
+  background: linear-gradient(270deg, rgba(59, 80, 180, 0.15) 0%, transparent 100%);
+}
+
+/* ─── Animations ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.7s ease-out both; }
+.animate-fade-in    { animation: fadeIn  0.6s ease-out both; }
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+
+/* ─── Scroll Reveal ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Testimonial Marquee ─── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  gap: 1.5rem;
+  animation: marquee 40s linear infinite;
+  width: max-content;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Grid Background ─── */
+.bg-grid {
+  background-size: 100px 100px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 234, 223, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 234, 223, 0.04) 1px, transparent 1px);
+  background-position: center top;
+}
+
+/* ─── Feature card hover ─── */
+.feature-card {
+  background: var(--color-card);
+  border-radius: 1.75rem;
+  border: 1px solid rgba(255, 234, 223, 0.06);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.feature-card:hover {
+  border-color: rgba(255, 234, 223, 0.12);
+  box-shadow: 0 4px 40px rgba(255, 234, 223, 0.04);
+}
+
+/* ─── Testimonial card ─── */
+.testimonial-card {
+  background: var(--color-card);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 234, 223, 0.08);
+  flex-shrink: 0;
+  width: 280px;
+  padding: 1.25rem;
+}
+@media (min-width: 640px) {
+  .testimonial-card {
+    width: 340px;
+    padding: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .testimonial-card {
+    width: 380px;
+  }
+}
+
+/* ─── Compat for old components still in repo ─── */
+.showcase-card {
+  background: var(--color-card);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 234, 223, 0.08);
+}
+
+/* ─── Section divider line (Mitra uses thin lines between major sections) ─── */
+.section-divider {
+  height: 1px;
+  background: rgba(255, 234, 223, 0.06);
+  margin: 0 auto;
+}
+
+/* Keep portrait hero video fully visible in fullscreen */
+.hero-video:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  background: #000;
+}
+
+.hero-video:-webkit-full-screen {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  background: #000;
+}
+
+

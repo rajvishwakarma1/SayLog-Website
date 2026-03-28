@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.getmitra.com)",
+      "Bash(npx next:*)",
+      "WebSearch",
+      "WebFetch(domain:huntscreens.com)",
+      "WebFetch(domain:creati.ai)",
+      "Bash(curl -s -L https://www.getmitra.com/)",
+      "Bash(grep -oP '#[0-9a-fA-F]{3,8}')",
+      "Bash(grep -v '^$')",
+      "Bash(tr '>' '\\\\n')",
+      "Bash(grep -v '^[[:space:]]*$')",
+      "Bash(npx tsc:*)",
+      "Bash(curl -s https://www.getmitra.com/)",
+      "Bash(grep -oP '.{0,200}Privacy.{0,200}' \"C:\\\\Users\\\\rajvi\\\\.claude\\\\projects\\\\D--dev-SayLog-Website\\\\52c5c2da-2090-440b-9da8-ddd882fc00b8\\\\tool-results\\\\btszydx08.txt\")",
+      "Bash(grep -oP '.{0,200}footer.{0,200}' \"C:\\\\Users\\\\rajvi\\\\.claude\\\\projects\\\\D--dev-SayLog-Website\\\\52c5c2da-2090-440b-9da8-ddd882fc00b8\\\\tool-results\\\\btszydx08.txt\")",
+      "Bash(grep -oP '.{0,200}Footer.{0,200}' \"C:\\\\Users\\\\rajvi\\\\.claude\\\\projects\\\\D--dev-SayLog-Website\\\\52c5c2da-2090-440b-9da8-ddd882fc00b8\\\\tool-results\\\\btszydx08.txt\")",
+      "Bash(grep -oP '.{0,3000}data-framer-name=\"\"\"\"Desktop\"\"\"\" style=\"\"\"\"background-color:var.{0,5000}' \"C:\\\\Users\\\\rajvi\\\\.claude\\\\projects\\\\D--dev-SayLog-Website\\\\52c5c2da-2090-440b-9da8-ddd882fc00b8\\\\tool-results\\\\btszydx08.txt\")",
+      "Bash(grep -oP '<footer class=\"\"\"\"framer-PI6oi[^\"\"\"\"]*\"\"\"\" [^>]*data-framer-name=\"\"\"\"Desktop\"\"\"\"[^>]*>.{0,15000}?</footer>' \"C:\\\\Users\\\\rajvi\\\\.claude\\\\projects\\\\D--dev-SayLog-Website\\\\52c5c2da-2090-440b-9da8-ddd882fc00b8\\\\tool-results\\\\btszydx08.txt\")",
+      "Bash(grep -oP '.{0,5000}Footer Video' \"C:\\\\Users\\\\rajvi\\\\.claude\\\\projects\\\\D--dev-SayLog-Website\\\\52c5c2da-2090-440b-9da8-ddd882fc00b8\\\\tool-results\\\\btszydx08.txt\")",
+      "Bash(grep -oP 'data-framer-name=\"\"\"\"Footer Video\"\"\"\".{0,3000}' \"C:\\\\Users\\\\rajvi\\\\.claude\\\\projects\\\\D--dev-SayLog-Website\\\\52c5c2da-2090-440b-9da8-ddd882fc00b8\\\\tool-results\\\\btszydx08.txt\")",
+      "Bash(grep -oP 'data-framer-name=\"\"\"\"CTA[^\"\"\"\"]*\"\"\"\".{0,500}' \"C:\\\\Users\\\\rajvi\\\\.claude\\\\projects\\\\D--dev-SayLog-Website\\\\52c5c2da-2090-440b-9da8-ddd882fc00b8\\\\tool-results\\\\btszydx08.txt\")",
+      "Bash(grep -oP 'Carry yourself further.{0,300}' \"C:\\\\Users\\\\rajvi\\\\.claude\\\\projects\\\\D--dev-SayLog-Website\\\\52c5c2da-2090-440b-9da8-ddd882fc00b8\\\\tool-results\\\\btszydx08.txt\")",
+      "WebFetch(domain:www.loominote.app)",
+      "Bash(npm install:*)",
+      "Bash(npx remotion:*)",
+      "Bash(rm -rf promo-video/node_modules promo-video/out promo-video/.remotion promo-video/src promo-video/public promo-video/package.json promo-video/package-lock.json promo-video/tsconfig.json promo-video/remotion.config.ts)",
+      "Bash(rmdir promo-video:*)",
+      "Bash(taskkill //F //PID 6312)"
+    ]
+  }
+}

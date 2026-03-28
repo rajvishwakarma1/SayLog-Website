@@ -1,58 +1,68 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import SayLogLogo from "./SayLogLogo";
 
 export default function Navbar() {
-    const [isVisible, setIsVisible] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
+  useEffect(() => {
+    const h = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", h, { passive: true });
+    return () => window.removeEventListener("scroll", h);
+  }, []);
 
-            // If we scroll down past 80px, hide the navbar. If we scroll up, show it.
-            if (currentScrollY > lastScrollY && currentScrollY > 80) {
-                setIsVisible(false);
-            } else {
-                setIsVisible(true);
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      <div
+        className={`mx-auto max-w-6xl border-x border-b border-cream/10 transition-[background-color,backdrop-filter] duration-300 ${
+          scrolled ? "nav-blur" : ""
+        }`}
+      >
+        <div className="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 md:px-10">
+        {/* Logo */}
+        <a
+          href="/"
+          className="flex cursor-pointer items-center gap-2"
+          onClick={(e) => {
+            if (isHome) {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
             }
-
-            setLastScrollY(currentScrollY);
-        };
-
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [lastScrollY]);
-
-    return (
-        <nav
-            className={`fixed top-0 left-0 z-50 w-full border-b border-stone-border bg-stone-bg/95 backdrop-blur-md transition-transform duration-300 ease-in-out ${isVisible ? "translate-y-0" : "-translate-y-full"
-                }`}
+          }}
         >
-            <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-4">
-                <div
-                    className="flex items-center gap-2 cursor-pointer"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                >
-                    <SayLogLogo size={32} />
-                    <span className="text-lg font-semibold tracking-tight text-stone-text">SayLog</span>
-                </div>
+          <SayLogLogo size={22} showBars={true} />
+          <span className="text-[14px] font-semibold tracking-tight text-white sm:text-[15px]">
+            SayLog
+          </span>
+        </a>
 
-                <div className="flex items-center gap-4 sm:gap-8">
-                    <div className="hidden items-center gap-8 md:flex">
-                        <a href="#how-it-works" className="text-sm font-medium text-stone-text-secondary hover:text-stone-text transition-colors">How it works</a>
-                        <a href="mailto:rwelabs@gmail.com" className="text-sm font-medium text-stone-text-secondary hover:text-stone-text transition-colors">Contact</a>
-                        <a href="#faq" className="text-sm font-medium text-stone-text-secondary hover:text-stone-text transition-colors">FAQ</a>
-                    </div>
-                    <a
-                        href="#waitlist"
-                        className="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-accent-dark shadow-sm"
-                    >
-                        Join waitlist
-                    </a>
-                </div>
-            </div>
-        </nav>
-    );
+        {/* Right side */}
+        <div className="flex items-center gap-4 sm:gap-6">
+          <a
+            href={isHome ? "#features" : "/#features"}
+            className="hidden text-sm text-cream/50 transition-colors duration-[400ms] hover:text-cream md:block"
+          >
+            Features
+          </a>
+          <a
+            href={isHome ? "#faq" : "/#faq"}
+            className="hidden text-sm text-cream/50 transition-colors duration-[400ms] hover:text-cream md:block"
+          >
+            FAQ
+          </a>
+          <a
+            href={isHome ? "#waitlist" : "/#waitlist"}
+            className="rounded-full border border-cream/30 px-4 py-1.5 text-xs font-medium text-cream transition-all duration-300 hover:bg-cream hover:text-[#19181a] sm:px-5 sm:py-2 sm:text-sm"
+          >
+            Get early access
+          </a>
+        </div>
+        </div>
+      </div>
+    </nav>
+  );
 }

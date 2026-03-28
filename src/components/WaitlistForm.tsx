@@ -46,14 +46,14 @@ export default function WaitlistForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-green-200 bg-green-50 p-8 text-center">
-        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-          <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+      <div className="rounded-2xl border border-cream/20 bg-cream/[0.06] p-8 text-center">
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-cream/10">
+          <svg className="h-6 w-6 text-cream" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
         </div>
-        <h3 className="text-lg font-semibold text-green-900">You&apos;re on the list!</h3>
-        <p className="mt-2 text-sm text-green-700">
+        <h3 className="text-lg font-semibold text-cream">You&apos;re on the list!</h3>
+        <p className="mt-2 text-sm text-cream/60">
           We&apos;ll reach out when SayLog is ready for you.
         </p>
       </div>
@@ -73,7 +73,7 @@ export default function WaitlistForm() {
           value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })}
           placeholder="Your name"
-          className="w-full rounded-lg border border-stone-border bg-white px-4 py-2.5 text-base sm:text-sm text-stone-text placeholder:text-stone-text-tertiary outline-none transition-colors focus:border-[--color-accent] focus:ring-1 focus:ring-[--color-accent]"
+          className="w-full rounded-lg border border-stone-border bg-cream/[0.06] px-4 py-2.5 text-base sm:text-sm text-cream placeholder:text-stone-text-tertiary outline-none transition-colors focus:border-[--color-accent] focus:ring-1 focus:ring-[--color-accent]"
         />
       </div>
 
@@ -88,7 +88,7 @@ export default function WaitlistForm() {
           value={form.email}
           onChange={(e) => setForm({ ...form, email: e.target.value })}
           placeholder="you@example.com"
-          className="w-full rounded-lg border border-stone-border bg-white px-4 py-2.5 text-base sm:text-sm text-stone-text placeholder:text-stone-text-tertiary outline-none transition-colors focus:border-[--color-accent] focus:ring-1 focus:ring-[--color-accent]"
+          className="w-full rounded-lg border border-stone-border bg-cream/[0.06] px-4 py-2.5 text-base sm:text-sm text-cream placeholder:text-stone-text-tertiary outline-none transition-colors focus:border-[--color-accent] focus:ring-1 focus:ring-[--color-accent]"
         />
       </div>
 

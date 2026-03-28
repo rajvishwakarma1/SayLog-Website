@@ -69,7 +69,7 @@ export default function AdminPage() {
           <div className="mb-8 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <SayLogLogo size={28} />
-              <span className="text-lg font-semibold">SayLog — Waitlist</span>
+              <span className="text-lg font-semibold">SayLog - Waitlist</span>
             </div>
             <div className="flex items-center gap-4">
               <span className="rounded-full bg-accent/10 px-3 py-1 text-sm font-medium text-accent">
@@ -110,7 +110,7 @@ export default function AdminPage() {
                       <td className="px-5 py-3.5 text-stone-text-tertiary tabular-nums">{i + 1}</td>
                       <td className="px-5 py-3.5 font-medium text-stone-text">{entry.name}</td>
                       <td className="px-5 py-3.5 text-stone-text-secondary">{entry.email}</td>
-                      <td className="px-5 py-3.5 text-stone-text-secondary">{entry.phone || "—"}</td>
+                      <td className="px-5 py-3.5 text-stone-text-secondary">{entry.phone || "-"}</td>
                       <td className="px-5 py-3.5">
                         <span
                           className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
