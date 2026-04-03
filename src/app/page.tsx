@@ -412,7 +412,7 @@ export default function Home() {
       <section className="relative">
         <div className="mx-auto max-w-6xl border-b border-x border-cream/10">
           <Reveal>
-            <div className="flex flex-col md:flex-row md:items-stretch">
+            <div className="flex flex-col-reverse md:flex-row md:items-stretch">
               {/* Left - Video */}
               <div className="relative flex flex-1 items-center justify-center px-6 py-8 sm:p-8 md:p-16">
                 <div
@@ -1208,33 +1208,33 @@ function TrackingChatScreen() {
 /* ─── Testimonials data ─── */
 const TESTIMONIALS = [
   {
-    title: "Best Calorie Tracker",
+    title: "actually works for indian food",
     date: "2 weeks ago",
     author: "Priya_S",
-    body: "I\u2019ve tried every calorie tracking app out there, but none of them understood Indian food. SayLog just gets it \u2014 I say \u2018dal chawal\u2019 and it knows exactly what I mean. No more searching through endless databases for \u2018lentil curry with rice\u2019.",
+    body: "tried so many apps but nothing actually works for indian food. with saylog i just say '2 roti and dal' and it's done. finally don't have to search for 'lentil soup' anymore lol.",
   },
   {
-    title: "Game-Changer",
+    title: "way faster than typing",
     date: "Mar 15",
     author: "FitWithRahul",
-    body: "As someone who tracks macros daily, this saves me so much time. I used to spend 5 minutes logging each meal manually. Now I just speak in Hindi and everything is logged perfectly. The voice recognition is surprisingly accurate.",
+    body: "logging used to take forever. now i just speak in hindi while walking back from the gym and it's all there. works way better than i expected tbh.",
   },
   {
-    title: "So Much Easier",
+    title: "effortless",
     date: "1 week ago",
     author: "Meera.K",
-    body: "I gave up on calorie counting three times because it was too tedious. SayLog made it effortless \u2014 I just talk about what I ate and it handles everything. Even mixed thalis and home-cooked meals.",
+    body: "actually sticking to my diet for once. it's so much easier when you don't have to type everything out. literally took 5 seconds to log my lunch today.",
   },
   {
-    title: "Finally, an Indian Food Tracker",
+    title: "finally, natural portions",
     date: "Mar 20",
     author: "HealthyAakash",
-    body: "Every other app made me search for 'chapati' or 'roti' and the results were always wrong. SayLog understands portions the way we describe them \u2014 katori, plate, glass. It just works.",
+    body: "it actually understands what a 'katori' or 'plate' is. other apps are so confusing with grams and portions. this is just natural.",
   },
   {
-    title: "Voice Logging is the Future",
+    title: "lifesaver for busy days",
     date: "3 days ago",
     author: "Sneha_Fit",
-    body: "I was skeptical about voice logging but it\u2019s genuinely faster than anything else. I log my entire day\u2019s meals in under a minute. The Hindi support is amazing \u2014 feels like talking to a friend.",
+    body: "wasn't sure if the voice thing would work but it's actually really fast. i log everything in like 30 seconds now. definitely a lifesaver for busy days.",
   },
 ];
