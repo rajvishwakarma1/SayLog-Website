@@ -1,8 +1,19 @@
 import FeaturePage from "@/components/FeaturePage";
 
 export const metadata = {
-  title: "SayLog for Indian Home Cooking",
-  description: "Finally, a calorie tracker that understands Indian home-cooked meals. SayLog tracks dal, sabzi, roti, rice, and everything your kitchen makes — no barcode needed.",
+  title: "Calorie Tracker for Indian Home Cooking",
+  description:
+    "Finally, a calorie tracker that understands Indian home-cooked meals. Track dal, sabzi, roti, paratha, and family recipes by voice. No barcode scanning needed.",
+  alternates: {
+    canonical: "/use-cases/home-cooking",
+  },
+  openGraph: {
+    title: "Calorie Tracker for Indian Home Cooking | SayLog",
+    description:
+      "A calorie tracker that understands Indian home-cooked meals — dal, sabzi, roti, and everything your kitchen makes.",
+    url: "/use-cases/home-cooking",
+    images: [{ url: "/og-image.png" }],
+  },
 };
 
 export default function HomeCookingPage() {

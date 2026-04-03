@@ -1,8 +1,19 @@
 import FeaturePage from "@/components/FeaturePage";
 
 export const metadata = {
-  title: "Personalized Insights - SayLog",
-  description: "SayLog learns your eating patterns and gives you personalized nutritional insights, trends, and suggestions tailored to your goals.",
+  title: "Personalized Nutritional Insights & Weekly Reports",
+  description:
+    "SayLog learns your eating patterns and delivers personalized nutritional insights — weekly trends, nutritional gaps, and health reports tailored to your diet and fitness goals.",
+  alternates: {
+    canonical: "/features/insights",
+  },
+  openGraph: {
+    title: "Personalized Nutritional Insights | SayLog",
+    description:
+      "Weekly trends, nutritional gaps, and health reports tailored to your eating patterns and goals.",
+    url: "/features/insights",
+    images: [{ url: "/og-image.png" }],
+  },
 };
 
 export default function InsightsPage() {

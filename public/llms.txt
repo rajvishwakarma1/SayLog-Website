@@ -1,0 +1,45 @@
+# SayLog
+
+> SayLog is a voice-first calorie tracker built specifically for Indian food. Users log meals by speaking in 11 Indian languages, and SayLog instantly calculates calories and macros. No typing, no barcode scanning, no database searching.
+
+## What is SayLog?
+
+SayLog is the easiest calorie tracker app. It uses voice input to let users log meals in under 5 seconds. Unlike traditional calorie trackers that rely on barcode scanning or manual text search, SayLog understands natural speech -- including mixed-language sentences (code-switching between Hindi and English, for example). It is purpose-built for Indian cuisine, understanding home-cooked meals, street food, regional dishes, and Indian portion sizes like "1 katori" or "half a roti".
+
+## Key Features
+
+- **Voice Meal Logging**: Tap the mic, say what you ate, get instant calorie and macro data
+- **11 Indian Languages**: Hindi, English, Bengali, Tamil, Telugu, Gujarati, Kannada, Malayalam, Marathi, Punjabi, Odia
+- **500+ Indian Dishes**: Built-in database of Indian foods including home-cooked meals, street food, and restaurant dishes
+- **Instant Macro Breakdown**: Calories, protein, carbs, fat, and fiber calculated in real-time
+- **Personalized Insights**: Weekly trends, eating patterns, nutritional gaps, and health reports
+- **Meal Recognition**: Recognizes Indian meals from names, ingredients, and descriptions without barcodes
+
+## Main Pages
+
+- [Home](https://saylog.xyz): Product overview, features, FAQ, and waitlist signup
+- [Voice Meal Logging](https://saylog.xyz/features/voice-logging): How voice-based meal logging works
+- [Indian Language Support](https://saylog.xyz/features/languages): 11 supported Indian languages
+- [Instant Macro Breakdown](https://saylog.xyz/features/macros): Real-time calorie and macro calculation
+- [Personalized Insights](https://saylog.xyz/features/insights): AI-powered nutritional insights
+- [Meal Recognition](https://saylog.xyz/features/meal-recognition): Indian dish recognition without barcodes
+- [For Fitness Enthusiasts](https://saylog.xyz/use-cases/fitness): Macro tracking for gym-goers
+- [For Busy Professionals](https://saylog.xyz/use-cases/professionals): Quick voice logging for working people
+- [For Indian Home Cooking](https://saylog.xyz/use-cases/home-cooking): Tracking homemade Indian meals
+- [Privacy Policy](https://saylog.xyz/privacy): Data handling and privacy practices
+- [Terms of Service](https://saylog.xyz/terms): Terms and conditions
+
+## Frequently Asked Questions
+
+- **How does voice logging work?** You tap the mic button, say what you ate in plain language, and SayLog converts that into a full calorie and macro breakdown. No searching through databases or weighing food.
+- **Does it understand Indian food?** Yes. SayLog is built specifically for Indian food -- home-cooked meals, street food, mixed thalis, regional dishes. It understands portions the way Indians describe them.
+- **Which languages are supported?** Hindi, English, Bengali, Tamil, Telugu, Gujarati, Kannada, Malayalam, Marathi, Punjabi, and Odia. Code-switching is also supported.
+- **How is SayLog different from other calorie trackers?** Most trackers fail because logging is tedious. SayLog takes about 5 seconds per meal -- just speak and you're done. No typing, no photo scanning, no scrolling through food lists.
+
+## Company
+
+- Built by RWE Labs
+- Contact: rwelabs@gmail.com
+- Instagram: https://www.instagram.com/rajvishwakarmafr/
+- X (Twitter): https://x.com/303zion
+- LinkedIn: https://www.linkedin.com/in/rajvishwakarma1/

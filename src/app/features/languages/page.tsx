@@ -1,8 +1,19 @@
 import FeaturePage from "@/components/FeaturePage";
 
 export const metadata = {
-  title: "Indian Language Support - SayLog",
-  description: "SayLog understands 11 Indian languages including Hindi, Tamil, Telugu, Bengali, Marathi, Kannada, and more. Log meals the way you naturally speak.",
+  title: "11 Indian Languages Supported — Hindi, Tamil & More",
+  description:
+    "Track calories in Hindi, Tamil, Telugu, Bengali, Gujarati, Kannada, Malayalam, Marathi, Punjabi, and Odia. SayLog understands code-switching and regional food names. Just speak naturally.",
+  alternates: {
+    canonical: "/features/languages",
+  },
+  openGraph: {
+    title: "11 Indian Languages Supported | SayLog",
+    description:
+      "Track calories in Hindi, Tamil, Telugu, Bengali, and 7 more Indian languages. SayLog understands code-switching and regional food names.",
+    url: "/features/languages",
+    images: [{ url: "/og-image.png" }],
+  },
 };
 
 export default function LanguagesPage() {

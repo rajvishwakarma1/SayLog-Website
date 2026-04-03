@@ -27,7 +27,8 @@
       "Bash(npx remotion:*)",
       "Bash(rm -rf promo-video/node_modules promo-video/out promo-video/.remotion promo-video/src promo-video/public promo-video/package.json promo-video/package-lock.json promo-video/tsconfig.json promo-video/remotion.config.ts)",
       "Bash(rmdir promo-video:*)",
-      "Bash(taskkill //F //PID 6312)"
+      "Bash(taskkill //F //PID 6312)",
+      "Bash(git log:*)"
     ]
   }
 }

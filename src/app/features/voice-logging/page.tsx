@@ -1,8 +1,19 @@
 import FeaturePage from "@/components/FeaturePage";
 
 export const metadata = {
-  title: "Voice Meal Logging - SayLog",
-  description: "Log your meals by simply speaking. SayLog understands natural speech in 11 Indian languages and instantly converts it into accurate nutritional data.",
+  title: "Voice Meal Logging — Log Calories by Speaking",
+  description:
+    "Log your meals by speaking in Hindi, Tamil, Bengali, or 8 more Indian languages. SayLog converts natural speech into accurate calorie and macro data in under 5 seconds. No typing, no barcode scanning.",
+  alternates: {
+    canonical: "/features/voice-logging",
+  },
+  openGraph: {
+    title: "Voice Meal Logging — Log Calories by Speaking | SayLog",
+    description:
+      "Log meals by speaking. SayLog understands Hindi, Tamil, Bengali, and 8 more Indian languages.",
+    url: "/features/voice-logging",
+    images: [{ url: "/og-image.png" }],
+  },
 };
 
 export default function VoiceLoggingPage() {

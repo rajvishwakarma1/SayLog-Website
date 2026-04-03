@@ -1,8 +1,19 @@
 import FeaturePage from "@/components/FeaturePage";
 
 export const metadata = {
-  title: "SayLog for Busy Professionals",
-  description: "Track your nutrition without disrupting your workday. SayLog lets busy professionals log meals by voice in seconds, even during back-to-back meetings.",
+  title: "Easiest Calorie Tracker for Busy Professionals",
+  description:
+    "Log meals in under 5 seconds by voice. SayLog is the easiest calorie tracker for busy professionals — works with office canteen food, restaurant meals, and home-packed lunch.",
+  alternates: {
+    canonical: "/use-cases/professionals",
+  },
+  openGraph: {
+    title: "Easiest Calorie Tracker for Busy Professionals | SayLog",
+    description:
+      "Log meals in under 5 seconds by voice. The easiest calorie tracker for your workday.",
+    url: "/use-cases/professionals",
+    images: [{ url: "/og-image.png" }],
+  },
 };
 
 export default function ProfessionalsPage() {

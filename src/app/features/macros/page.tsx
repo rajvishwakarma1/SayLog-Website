@@ -1,8 +1,19 @@
 import FeaturePage from "@/components/FeaturePage";
 
 export const metadata = {
-  title: "Instant Macro Breakdown - SayLog",
-  description: "Get calories, protein, carbs, and fat instantly after logging a meal by voice. SayLog breaks down every Indian dish into detailed macronutrients.",
+  title: "Instant Macro Breakdown for Indian Food",
+  description:
+    "Get instant calories, protein, carbs, and fat for every Indian meal. SayLog handles home-cooked dal, biryani, thalis, and street food that no other tracker understands.",
+  alternates: {
+    canonical: "/features/macros",
+  },
+  openGraph: {
+    title: "Instant Macro Breakdown for Indian Food | SayLog",
+    description:
+      "Get instant calories, protein, carbs, and fat for every Indian meal — home-cooked or restaurant.",
+    url: "/features/macros",
+    images: [{ url: "/og-image.png" }],
+  },
 };
 
 export default function MacrosPage() {

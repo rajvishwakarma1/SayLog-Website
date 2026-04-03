@@ -1,8 +1,19 @@
 import FeaturePage from "@/components/FeaturePage";
 
 export const metadata = {
-  title: "Meal Recognition - SayLog",
-  description: "SayLog recognizes Indian meals from their names, ingredients, and descriptions. No barcode needed — it knows your food.",
+  title: "500+ Indian Dishes — No Barcode Needed",
+  description:
+    "SayLog recognizes 500+ Indian dishes from names and ingredients. Track home-cooked dal, sabzi, roti, biryani, and street food without barcodes or manual entry.",
+  alternates: {
+    canonical: "/features/meal-recognition",
+  },
+  openGraph: {
+    title: "500+ Indian Dishes — No Barcode Needed | SayLog",
+    description:
+      "SayLog recognizes 500+ Indian dishes from names and ingredients. No barcodes, no manual entry.",
+    url: "/features/meal-recognition",
+    images: [{ url: "/og-image.png" }],
+  },
 };
 
 export default function MealRecognitionPage() {

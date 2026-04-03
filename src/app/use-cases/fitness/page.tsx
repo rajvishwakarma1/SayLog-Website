@@ -1,8 +1,19 @@
 import FeaturePage from "@/components/FeaturePage";
 
 export const metadata = {
-  title: "SayLog for Fitness Enthusiasts",
-  description: "Track macros effortlessly while you focus on training. SayLog gives fitness enthusiasts precise protein, carb, and fat tracking through voice — no typing mid-workout.",
+  title: "Best Macro Tracker for Fitness — Track by Voice",
+  description:
+    "Hit your protein targets without the hassle. SayLog gives fitness enthusiasts instant macro tracking by voice — calories, protein, carbs, and fat. No typing mid-workout.",
+  alternates: {
+    canonical: "/use-cases/fitness",
+  },
+  openGraph: {
+    title: "SayLog for Fitness Enthusiasts",
+    description:
+      "Instant macro tracking by voice. Hit your protein targets without typing mid-workout.",
+    url: "/use-cases/fitness",
+    images: [{ url: "/og-image.png" }],
+  },
 };
 
 export default function FitnessPage() {

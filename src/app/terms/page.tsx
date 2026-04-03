@@ -2,6 +2,19 @@ import Navbar from "@/components/Navbar";
 import SayLogLogo from "@/components/SayLogLogo";
 import Footer from "@/components/Footer";
 
+export const metadata = {
+  title: "Terms of Service",
+  description:
+    "SayLog's terms of service. Read the terms and conditions for using the SayLog voice calorie tracker app.",
+  alternates: {
+    canonical: "/terms",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function TermsPage() {
   return (
     <main className="min-h-screen bg-[#19181a] text-cream">

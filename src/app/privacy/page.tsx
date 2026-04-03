@@ -2,6 +2,19 @@ import Navbar from "@/components/Navbar";
 import SayLogLogo from "@/components/SayLogLogo";
 import Footer from "@/components/Footer";
 
+export const metadata = {
+  title: "Privacy Policy",
+  description:
+    "SayLog's privacy policy. Learn how we handle your data, voice recordings, and nutritional information with transparency and care.",
+  alternates: {
+    canonical: "/privacy",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-[#19181a] text-cream">
