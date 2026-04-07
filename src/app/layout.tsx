@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import JsonLd from "@/components/JsonLd";
+import { Analytics } from "@vercel/analytics/next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://saylog.xyz";
 
@@ -239,7 +240,10 @@ export default function RootLayout({
         <JsonLd data={appJsonLd} />
         <JsonLd data={faqJsonLd} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
